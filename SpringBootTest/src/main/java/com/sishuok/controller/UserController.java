@@ -1,30 +1,27 @@
 package com.sishuok.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.sishuok.entity.User;
 
 /**
  * <p>User: Zhang Kaitao
  * <p>Date: 13-12-22
  * <p>Version: 1.0
  */
-//@EnableAutoConfiguration
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/messageGateWay")
 public class UserController {
 
-    @RequestMapping("/{id}")
-    public User view(@PathVariable("id") Long id) {
-        User user = new User();
-        user.setId(id);
-        user.setName("zhang");
-        return user;
+    @RequestMapping(value = "/illegalSenior")
+    public String processIllegalSenior() {
+    	//TODO Should add process logic after project started
+        return "illegalSenior";
     }
 
-    //public static void main(String[] args) {
-    //    SpringApplication.run(UserController.class);
-    //}
+    @RequestMapping(value = "/legalSenior", method = RequestMethod.POST)
+	public String processLegalSenior(){
+    	//TODO Should add process logic after project started
+    	return "legalSenior";
+    }
 }
